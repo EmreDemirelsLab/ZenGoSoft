@@ -3,202 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenGoSoft - Kişiselleştirilmiş Egzersiz & Test Platformu</title>
+    <title>ZenGoSoft - Yazılım Çözümleri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-brand">
-                    <a href="/">
-                        <span class="logo-text">ZenGo<span class="highlight">Soft</span></span>
-                    </a>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="zen-circle"></div>
+                    <span>ZenGo</span><span>Soft</span>
+                </a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" class="active">Ana Sayfa</a></li>
+                    <li><a href="#solutions">Çözümlerimiz</a></li>
+                    <li><a href="#features">Özellikler</a></li>
+                    <li><a href="#zengolearn">ZenGoLearn</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                    <li><a href="#" class="btn btn-accent">Giriş Yap</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
                 </div>
-                <div class="navbar-menu" id="main-menu">
-                    <ul class="navbar-nav">
-                        <li><a href="#features">Özellikler</a></li>
-                        <li><a href="#tests">Testler</a></li>
-                        <li><a href="#testimonials">Yorumlar</a></li>
-                        <li><a href="#faq">SSS</a></li>
-                    </ul>
-                </div>
-                <div class="navbar-buttons">
-                    <a href="#login" class="btn btn-outline">Giriş Yap</a>
-                    <a href="#register" class="btn btn-primary">Kayıt Ol</a>
-                </div>
-                <button class="menu-toggle" id="menu-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero">
+    <!-- Hero Bölümü -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Kişiselleştirilmiş Egzersiz ve Test Platformuna Hoş Geldiniz</h1>
-                <p>ZenGoSoft ile kendi potansiyelinizi keşfedin, hedeflerinizi belirleyin ve ilerlemenizi takip edin. Kişiye özel testler ve analizlerle daha sağlıklı bir yaşama adım atın.</p>
-                <div class="hero-buttons">
-                    <a href="#register" class="btn btn-primary btn-lg">Hemen Başla</a>
-                    <a href="#demo" class="btn btn-outline btn-lg">Demo İzle <i class="fas fa-play-circle"></i></a>
+                <span class="hero-subtitle">Yazılım Çözümleri</span>
+                <h1>ZenGoSoft ile <span>Öğrenmede</span> Yeni Dönem</h1>
+                <p>ZenGoSoft, yazılım çözümleriyle öğrenme deneyimini dönüştüren yenilikçi bir teknoloji firmasıdır. Kişiselleştirilmiş yazılımlarımızla eğitim ve gelişim süreçlerinize değer katıyoruz.</p>
+                <div class="cta-buttons">
+                    <a href="#solutions" class="btn btn-primary">Çözümlerimizi Keşfedin</a>
+                    <a href="#zengolearn" class="btn btn-accent">ZenGoLearn'e Geçin</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400" alt="ZenGoSoft Platform" class="rounded-image">
+                <img src="https://cdn.dribbble.com/users/1681407/screenshots/15721971/media/9b8aaff1cdec7981267cdf5dc35a34e1.png" alt="ZenGoSoft Teknoloji">
             </div>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <!-- Çözümler Bölümü -->
+    <section id="solutions" class="solutions section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Özelliklerimiz</h2>
-                <p>ZenGoSoft size sağlıklı bir yaşam için ihtiyacınız olan her şeyi sunar</p>
+                <span class="section-subtitle">Hizmetlerimiz</span>
+                <h2 class="section-title">Yazılım <span>Çözümlerimiz</span></h2>
+                <p>ZenGoSoft olarak müşterilerimize özel, yenilikçi ve verimli yazılım çözümleri sunuyoruz.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clipboard-check"></i>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3>Kişiselleştirilmiş Testler</h3>
-                    <p>Size özel hazırlanmış testlerle gelişiminizi ölçün ve kişisel ihtiyaçlarınıza göre hedefler belirleyin.</p>
+                    <h3>Özel Yazılım Geliştirme</h3>
+                    <p>İhtiyaçlarınıza uygun, ölçeklenebilir ve sürdürülebilir özel yazılım çözümleri geliştiriyoruz.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Detaylı Raporlar</h3>
-                    <p>Test sonuçlarınızı görsel grafikler ve kapsamlı analizlerle değerlendirin, güçlü ve geliştirilmesi gereken yönlerinizi keşfedin.</p>
+                    <h3>Mobil Uygulama Geliştirme</h3>
+                    <p>Android ve iOS platformları için kullanıcı dostu, performanslı mobil uygulamalar tasarlıyoruz.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-route"></i>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>Gelişim Takibi</h3>
-                    <p>Zaman içindeki ilerlemenizi takip edin, hedeflerinize ne kadar yaklaştığınızı görün ve motivasyonunuzu yüksek tutun.</p>
+                    <h3>Web Uygulamaları</h3>
+                    <p>Modern teknolojilerle geliştirilmiş, responsive ve kullanıcı odaklı web uygulamaları sunuyoruz.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-database"></i>
                     </div>
-                    <h3>Yapay Zeka Desteği</h3>
-                    <p>Gelişmiş yapay zeka algoritmalarımız sayesinde kişiselleştirilmiş öneriler ve programlar elde edin.</p>
+                    <h3>Veritabanı Çözümleri</h3>
+                    <p>Verilerin güvenli, hızlı ve verimli bir şekilde yönetilmesi için özel veritabanı çözümleri.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="tests" id="tests">
-        <div class="container">
-            <div class="section-header">
-                <h2>Popüler Testlerimiz</h2>
-                <p>Kendinizi tanımanın ve geliştirmenin en iyi yolu</p>
-            </div>
-            <div class="tests-slider">
-                <div class="test-card">
-                    <div class="test-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Fiziksel Uygunluk Testi">
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-cloud"></i>
                     </div>
-                    <div class="test-content">
-                        <h3>Fiziksel Uygunluk Testi</h3>
-                        <p>Kondisyon, güç ve esneklik seviyenizi değerlendirin.</p>
-                        <a href="#test-detail" class="btn btn-outline btn-sm">Teste Başla</a>
-                    </div>
+                    <h3>Bulut Çözümleri</h3>
+                    <p>İşletmenizin ihtiyaçlarına uygun, ölçeklenebilir ve güvenli bulut altyapı çözümleri.</p>
                 </div>
-                <div class="test-card">
-                    <div class="test-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Beslenme Analizi">
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <div class="test-content">
-                        <h3>Beslenme Analizi</h3>
-                        <p>Beslenme alışkanlıklarınızı değerlendirin ve öneriler alın.</p>
-                        <a href="#test-detail" class="btn btn-outline btn-sm">Teste Başla</a>
-                    </div>
-                </div>
-                <div class="test-card">
-                    <div class="test-image">
-                        <img src="https://via.placeholder.com/300x200" alt="Stres Yönetimi">
-                    </div>
-                    <div class="test-content">
-                        <h3>Stres Yönetimi</h3>
-                        <p>Stres seviyenizi ölçün ve azaltma teknikleri öğrenin.</p>
-                        <a href="#test-detail" class="btn btn-outline btn-sm">Teste Başla</a>
-                    </div>
-                </div>
-            </div>
-            <div class="section-footer">
-                <a href="#all-tests" class="btn btn-primary">Tüm Testleri Gör</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nasıl Çalışır?</h2>
-                <p>ZenGoSoft ile gelişim yolculuğunuz 3 basit adımda başlar</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Kayıt Olun</h3>
-                        <p>Hızlı ve kolay bir şekilde hesabınızı oluşturun, temel profilinizi doldurun.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Testleri Tamamlayın</h3>
-                        <p>İhtiyaçlarınıza uygun testleri seçin ve tamamlayın, sonuçlarınızı anında görün.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Gelişiminizi Takip Edin</h3>
-                        <p>Kişiselleştirilmiş öneriler alın, ilerlemenizi izleyin ve hedeflerinize ulaşın.</p>
-                    </div>
+                    <h3>Yapay Zeka Entegrasyonu</h3>
+                    <p>Yapay zeka ve makine öğrenimi teknolojileriyle işletmenizi bir adım öne taşıyın.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials" id="testimonials">
+    <!-- Özellikler Bölümü -->
+    <section id="features" class="features section-padding">
+        <div class="container">
+            <div class="features-content">
+                <div class="features-image">
+                    <img src="https://images.unsplash.com/photo-1557682250-9036d3a9f29c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ZenGoSoft Özellikleri">
+                </div>
+                
+                <div class="features-text">
+                    <span class="section-subtitle">Neden Biz?</span>
+                    <h2>Neden <span>ZenGoSoft?</span></h2>
+                    <p>ZenGoSoft olarak, yazılım geliştirmeye Zen felsefesinin ilkelerini uyguluyoruz - sadelik, farkındalık ve sürekli gelişim. Müşterilerimize sunduğumuz çözümlerde kalite ve inovasyonu ön planda tutuyoruz.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-item-text">
+                                <h4>Kullanıcı Odaklı Tasarım</h4>
+                                <p>Tüm çözümlerimizde kullanıcı deneyimini ön planda tutarak, sezgisel ve kullanımı kolay arayüzler tasarlıyoruz.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-item-text">
+                                <h4>Özelleştirilebilir Çözümler</h4>
+                                <p>Her işletmenin kendine özgü ihtiyaçları olduğunu biliyoruz. Bu nedenle tamamen özelleştirilebilir yazılım çözümleri sunuyoruz.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-item-text">
+                                <h4>Yüksek Performans</h4>
+                                <p>Optimizasyon odaklı geliştirme yaklaşımımızla, yüksek performanslı ve hızlı çalışan uygulamalar üretiyoruz.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-item-text">
+                                <h4>Sürekli Destek</h4>
+                                <p>Proje tesliminden sonra da yanınızdayız. Teknik destek ve bakım hizmetlerimizle sorunsuz bir deneyim yaşamanızı sağlıyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZenGoLearn Bölümü -->
+    <section id="zengolearn" class="zengolearn">
+        <div class="container">
+            <div class="zengolearn-content">
+                <span class="section-subtitle">Eğitim Platformu</span>
+                <h2>ZenGoLearn <span>Platformu</span></h2>
+                <p>ZenGoLearn, öğrenme süreçlerini dijitalleştiren ve optimize eden yenilikçi eğitim platformumuzdur. Kişiselleştirilmiş öğrenme deneyimi, detaylı analitik ve interaktif içeriklerle eğitim süreçlerinizi dönüştürün.</p>
+                <a href="#contact" class="btn btn-accent">Hemen Başlayın</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Bölümü -->
+    <section class="testimonials section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Kullanıcılarımız Ne Diyor?</h2>
-                <p>Binlerce mutlu kullanıcımızın deneyimlerini okuyun</p>
+                <span class="section-subtitle">Referanslarımız</span>
+                <h2 class="section-title">Müşteri <span>Görüşleri</span></h2>
+                <p>Müşterilerimizin ZenGoSoft hakkındaki düşünceleri.</p>
             </div>
-            <div class="testimonials-slider">
+            
+            <div class="testimonials-slider" id="testimonials-slider">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"ZenGoSoft sayesinde sağlıklı yaşam hedeflerime ulaşmak için neye ihtiyacım olduğunu daha iyi anladım. Kişiselleştirilmiş öneriler gerçekten fark yaratıyor!"</p>
+                        <p>ZenGoSoft ile çalışmak kurumumuz için bir dönüm noktası oldu. Eğitim platformumuz için geliştirdikleri çözüm beklentilerimizin ötesinde. Kullanıcı dostu arayüz ve detaylı analitik özellikleri sayesinde eğitim süreçlerimiz çok daha verimli hale geldi.</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60x60" alt="Ahmet Y." class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ahmet Yılmaz">
                         <div class="author-info">
-                            <h4>Ahmet Y.</h4>
-                            <p>Premium Üye, 8 aydır kullanıyor</p>
+                            <h4>Ahmet Yılmaz</h4>
+                            <p>Eğitim Direktörü, Akademi A.Ş.</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Egzersiz rutinimde takıldığım noktaları ZenGoSoft testleri sayesinde aşabildim. Raporlama sistemi çok detaylı ve anlaşılır, her gün biraz daha ilerliyorum."</p>
+                        <p>ZenGoLearn platformu sayesinde uzaktan eğitim süreçlerimizde %40 verimlilik artışı sağladık. Özellikle ölçme-değerlendirme modülü ve kişiselleştirilmiş öğrenim yolları sunması bizim için büyük avantaj sağladı.</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60x60" alt="Zeynep K." class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Zeynep Kaya">
                         <div class="author-info">
-                            <h4>Zeynep K.</h4>
-                            <p>Standard Üye, 3 aydır kullanıyor</p>
+                            <h4>Zeynep Kaya</h4>
+                            <p>İK Müdürü, TechPlus</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Kurumsal mobil uygulamamızı ZenGoSoft ile geliştirdik. Proje yönetim süreçleri çok profesyoneldi ve zamanında teslimat yapıldı. Uygulamamız pazara çıktıktan sonra müşteri geri bildirimleri çok olumlu oldu.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Murat Demir">
+                        <div class="author-info">
+                            <h4>Murat Demir</h4>
+                            <p>CTO, İnovasyon Labs</p>
                         </div>
                     </div>
                 </div>
@@ -206,218 +232,137 @@
         </div>
     </section>
 
-    <section class="pricing">
+    <!-- İletişim Bölümü -->
+    <section id="contact" class="contact section-padding">
         <div class="container">
             <div class="section-header">
-                <h2>Uygun Fiyatlandırma</h2>
-                <p>İhtiyaçlarınıza en uygun planı seçin</p>
+                <span class="section-subtitle">İletişim</span>
+                <h2 class="section-title">Bize <span>Ulaşın</span></h2>
+                <p>Projeleriniz için daha fazla bilgi almak veya demo talep etmek için bizimle iletişime geçin.</p>
             </div>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Ücretsiz</h3>
-                        <div class="pricing-price">
-                            <span class="currency">₺</span>
-                            <span class="amount">0</span>
-                            <span class="period">/ay</span>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>İletişim Bilgilerimiz</h3>
+                    <p>Sorularınız, önerileriniz veya projeleriniz için bizimle iletişime geçebilirsiniz. En kısa sürede size dönüş yapacağız.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Adres</h4>
+                                <p>Technopark A Blok No:123, İzmir, Türkiye</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Temel testlere erişim</li>
-                            <li><i class="fas fa-check"></i> Sınırlı raporlama</li>
-                            <li><i class="fas fa-check"></i> Temel ilerleme takibi</li>
-                            <li><i class="fas fa-times"></i> Kişiselleştirilmiş öneriler</li>
-                            <li><i class="fas fa-times"></i> Gelişmiş analitik</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#signup" class="btn btn-outline btn-block">Ücretsiz Başla</a>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Telefon</h4>
+                                <p>+90 232 123 4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>E-posta</h4>
+                                <p>info@zengosoft.com</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="pricing-card featured">
-                    <div class="popular-badge">En Popüler</div>
-                    <div class="pricing-header">
-                        <h3>Premium</h3>
-                        <div class="pricing-price">
-                            <span class="currency">₺</span>
-                            <span class="amount">49</span>
-                            <span class="period">/ay</span>
+                
+                <div class="contact-form">
+                    <h3>Mesaj Gönderin</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Adınız</label>
+                            <input type="text" id="name" name="name" placeholder="Adınız Soyadınız" required>
                         </div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Tüm testlere sınırsız erişim</li>
-                            <li><i class="fas fa-check"></i> Detaylı raporlama</li>
-                            <li><i class="fas fa-check"></i> Gelişmiş ilerleme takibi</li>
-                            <li><i class="fas fa-check"></i> Kişiselleştirilmiş öneriler</li>
-                            <li><i class="fas fa-check"></i> Temel analitik</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#signup" class="btn btn-primary btn-block">Şimdi Başla</a>
-                    </div>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Kurumsal</h3>
-                        <div class="pricing-price">
-                            <span class="currency">₺</span>
-                            <span class="amount">199</span>
-                            <span class="period">/ay</span>
+                        
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required>
                         </div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Tüm Premium özellikleri</li>
-                            <li><i class="fas fa-check"></i> 10 kullanıcı hesabı</li>
-                            <li><i class="fas fa-check"></i> Takım analizleri</li>
-                            <li><i class="fas fa-check"></i> Özel destek hattı</li>
-                            <li><i class="fas fa-check"></i> Gelişmiş analitik</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn btn-outline btn-block">Bize Ulaşın</a>
-                    </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <input type="text" id="subject" name="subject" placeholder="Mesaj konusu" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" name="message" placeholder="Mesajınızı yazın..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq" id="faq">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="section-header">
-                <h2>Sıkça Sorulan Sorular</h2>
-                <p>Merak ettiğiniz soruların cevapları</p>
-            </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>ZenGoSoft'u kullanmak için teknik bilgiye ihtiyacım var mı?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Hayır, ZenGoSoft kullanıcı dostu bir arayüze sahiptir ve teknik bilgi gerektirmez. Basit ve sezgisel tasarımımız sayesinde herkes kolayca kullanabilir.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Verilerim güvende mi?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Evet, tüm verileriniz 256-bit SSL şifreleme ile korunmaktadır. Kişisel bilgileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Üyeliğimi istediğim zaman iptal edebilir miyim?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Evet, üyeliğinizi istediğiniz zaman zorlanma olmadan iptal edebilirsiniz. İptal işleminden sonra mevcut dönem sonuna kadar hizmetlerimizden yararlanmaya devam edebilirsiniz.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Mobil uygulama var mı?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Evet, iOS ve Android için mobil uygulamalarımız mevcuttur. Uygulama mağazalarından "ZenGoSoft" olarak aratarak indirebilirsiniz.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Sağlıklı Yaşam Yolculuğunuza Bugün Başlayın</h2>
-                <p>Kişiselleştirilmiş testler ve analizlerle kendinizi keşfedin, hedeflerinize ulaşın.</p>
-                <a href="#register" class="btn btn-primary btn-lg">Ücretsiz Hesap Oluştur</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo">ZenGo<span class="highlight">Soft</span></a>
-                    <p>Kişiselleştirilmiş egzersiz ve test platformu ile sağlıklı yaşamın kapılarını aralayın.</p>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ZenGoSoft</h3>
+                    <p>Yazılım çözümleriyle öğrenme ve gelişim süreçlerini dönüştüren yenilikçi bir teknoloji firması. Zen felsefesinin ilkelerini yazılım geliştirme süreçlerimize uyguluyoruz.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
-                <div class="footer-links">
+                
+                <div class="footer-column">
                     <h3>Hızlı Bağlantılar</h3>
                     <ul>
-                        <li><a href="#features">Özellikler</a></li>
-                        <li><a href="#tests">Testler</a></li>
-                        <li><a href="#pricing">Fiyatlandırma</a></li>
-                        <li><a href="#faq">SSS</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Çözümlerimiz</a></li>
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Neden ZenGoSoft</a></li>
+                        <li><a href="#zengolearn"><i class="fas fa-chevron-right"></i> ZenGoLearn</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> İletişim</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h3>Kaynaklar</h3>
+                
+                <div class="footer-column">
+                    <h3>Çözümlerimiz</h3>
                     <ul>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#guide">Kullanım Kılavuzu</a></li>
-                        <li><a href="#support">Destek</a></li>
-                        <li><a href="#api">API</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Özel Yazılım Geliştirme</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mobil Uygulama Geliştirme</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Web Uygulamaları</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Veritabanı Çözümleri</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Bulut Çözümleri</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h3>İletişim</h3>
-                    <p><i class="fas fa-envelope"></i> info@zengosoft.com</p>
-                    <p><i class="fas fa-phone"></i> +90 212 123 45 67</p>
-                    <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+                
+                <div class="footer-column">
+                    <h3>Bültenimize Abone Olun</h3>
+                    <p>Güncel teknoloji haberleri ve ZenGoSoft'taki yeniliklerden haberdar olmak için bültenimize abone olun.</p>
+                    <form class="footer-subscribe">
+                        <input type="email" placeholder="E-posta adresiniz" required>
+                        <button type="submit" class="btn btn-accent">Abone Ol</button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 ZenGoSoft. Tüm hakları saklıdır.</p>
-                <div class="footer-bottom-links">
-                    <a href="#terms">Kullanım Şartları</a>
-                    <a href="#privacy">Gizlilik Politikası</a>
-                    <a href="#cookies">Çerez Politikası</a>
-                </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 ZenGoSoft. Tüm hakları saklıdır. | Zen felsefesi ile yazılım çözümleri</p>
             </div>
         </div>
     </footer>
 
-    <div class="login-modal" id="login-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Giriş Yap</h2>
-            <form class="login-form">
-                <div class="form-group">
-                    <label for="email">E-posta</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Şifre</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div class="form-options">
-                    <label>
-                        <input type="checkbox" id="remember">
-                        <span>Beni hatırla</span>
-                    </label>
-                    <a href="#forgot-password">Şifremi unuttum</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
-            </form>
-            <div class="modal-footer">
-                <p>Hesabınız yok mu? <a href="#register">Kayıt Ol</a></p>
-            </div>
-        </div>
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- JavaScript -->
     <script src="/js/main.js"></script>
 </body>
 </html>
