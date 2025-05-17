@@ -1,29 +1,38 @@
 // main.js - ZenGoSoft JavaScript Dosyası
 
-document.addEventListener('DOMContentLoaded', function() {
-    // =====================================================================
-    // YENİ EKLENEN BÖLÜM: Sayfa yenilendiğinde en üste git
-    // =====================================================================
+// =====================================================================
+// YENİ EKLENEN BÖLÜM: Sayfa yenilendiğinde en üste git (window.onload ile)
+// =====================================================================
+window.onload = function() {
     if (history.scrollRestoration) {
         history.scrollRestoration = 'manual'; // Tarayıcının otomatik scroll'unu iptal et
     }
     window.scrollTo(0, 0); // Sayfayı en üste kaydır
-    // =====================================================================
+};
+// =====================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ÖNEMLİ: Yukarıda window.onload kullandığımız için
+    // aşağıdaki satırlar YORUM SATIRI haline getirildi veya SİLİNDİ.
+    /*
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    */
 
     // Header Scroll Efekti
     const header = document.getElementById('header');
-    // DEĞİŞİKLİK: scrollTop değişken adı scrollTopButton olarak değiştirildi ve null kontrolü eklendi
     const scrollTopButton = document.getElementById('scrollTop'); 
     
     window.addEventListener('scroll', function() {
-        if (header) { // header elementi varsa işlem yap
+        if (header) {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         }
-        // DEĞİŞİKLİK: scrollTopButton için null kontrolü eklendi
         if (scrollTopButton) { 
             if (window.scrollY > 50) {
                 scrollTopButton.classList.add('active');
@@ -37,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     
-    if (hamburger && navLinks) { // Elementlerin varlığını kontrol et
+    if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
@@ -48,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageAnchors = document.querySelectorAll('a[href^="#"]');
     pageAnchors.forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            if (this.getAttribute('href') === '#') return; // Sadece '#' olan linkler için bir şey yapma
+            if (this.getAttribute('href') === '#') return;
             
             e.preventDefault();
             
@@ -57,18 +66,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Header yüksekliği kadar offset
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                     
-                    // Mobil menü açıksa kapat
                     if (navLinks && navLinks.classList.contains('active') && hamburger) {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('active');
                     }
                 }
             } catch (error) {
-                // Hedef ID geçerli bir CSS seçici değilse (örn: href="#") hata oluşabilir, yakala.
                 console.warn("Geçersiz hedef ID veya element bulunamadı:", targetId, error);
             }
         });
@@ -76,13 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Testimonial Slider
     const testimonialSlider = document.getElementById('testimonials-slider');
-    if (testimonialSlider) { // testimonialSlider elementi varsa işlem yap
+    if (testimonialSlider) {
         const testimonialCards = testimonialSlider.querySelectorAll('.testimonial-card');
-        if (testimonialCards && testimonialCards.length > 0) { // Kartlar varsa devam et
+        if (testimonialCards && testimonialCards.length > 0) {
             let currentIndex = 0;
             
             function showTestimonial(index) {
-               const cardWidth = testimonialCards[0].offsetWidth + 30; // +30 for margins
+               const cardWidth = testimonialCards[0].offsetWidth + 30;
                testimonialSlider.scrollTo({
                    left: index * cardWidth,
                    behavior: 'smooth'
@@ -130,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
    
     // Scroll to Top Butonu
-    // DEĞİŞİKLİK: scrollTopButton değişkeni zaten yukarıda tanımlanmıştı, null kontrolü eklendi
     if (scrollTopButton) { 
         scrollTopButton.addEventListener('click', () => {
             window.scrollTo({
@@ -142,7 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
    
     // Form Gönderimi
     const contactForm = document.getElementById('contact-form');
-    // DEĞİŞİKLİK: contactForm için null kontrolü eklendi
     if (contactForm) { 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -152,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const subjectInput = document.getElementById('subject');
             const messageInput = document.getElementById('message');
 
-            // Basit bir ön kontrol (isteğe bağlı, daha kapsamlı yapılabilir)
             if (!nameInput.value || !emailInput.value || !subjectInput.value || !messageInput.value) {
                 alert('Lütfen tüm alanları doldurun.');
                 return;
@@ -174,11 +178,9 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (!response.ok) {
-                    // Sunucudan gelen JSON mesajını almaya çalış
                     return response.json().then(errData => {
                         throw new Error(errData.message || 'Sunucu hatası');
                     }).catch(() => {
-                        // JSON parse edilemezse genel bir hata fırlat
                         throw new Error(`Sunucu hatası: ${response.status}`);
                     });
                 }
@@ -187,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.success) {
                     alert('Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.');
-                    this.reset(); // Formu sıfırla
+                    this.reset();
                 } else {
                     alert('Mesaj gönderilirken bir hata oluştu: ' + (data.message || 'Bilinmeyen hata'));
                 }
@@ -199,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // MongoDB bağlantısını test et (API durumunu kontrol et)
+    // API durumunu kontrol et
     checkApiStatus();
 });
 
