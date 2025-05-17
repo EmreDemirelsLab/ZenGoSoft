@@ -1,8 +1,9 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify, request
 from flask_cors import CORS
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+import datetime
 
 # .env dosyasını yükle
 load_dotenv()
@@ -32,10 +33,37 @@ def index():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
+# İletişim formu için API endpoint'i
+@app.route('/api/contact', methods=['POST'])
+def contact():
+    try:
+        data = request.json
+        
+        # Verileri MongoDB'ye kaydet
+        result = db.contacts.insert_one({
+            'name': data.get('name'),
+            'email': data.get('email'),
+            'subject': data.get('subject'),
+            'message': data.get('message'),
+            'date': datetime.datetime.now()
+        })
+        
+        return jsonify({
+            "success": True,
+            "message": "Mesajınız başarıyla kaydedildi."
+        })
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "message": f"Hata oluştu: {str(e)}"
+        }), 500
+        
+        
+
 # Test için API endpoint'i
 @app.route('/api/status')
 def status():
-    if db is not None:  # <-- Burayı "if db:" yerine "if db is not None:" olarak değiştirin
+    if db is not None:
         try:
             # Basit bir test sorgusu çalıştırma
             db.test_collection.find_one({})
