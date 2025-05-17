@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 import datetime
 import logging
+import certifi # certifi'yi import edin
 
 # Loglama ayarları
 logging.basicConfig(level=logging.INFO)
@@ -24,10 +25,10 @@ app.config["SECRET_KEY"] = SECRET_KEY
 # MongoDB bağlantısı
 try:
     if MONGO_URI:
-        client = MongoClient(MONGO_URI)
-        # Bağlantıyı test et
+        # certifi.where() ile CA sertifikalarının yolunu belirtin
+        client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
         db = client.zengosoft
-        db.test_collection.find_one({})
+        db.test_collection.find_one({}) # Bağlantıyı test et
         logger.info("MongoDB bağlantısı başarılı!")
     else:
         logger.error("MONGO_URI çevre değişkeni bulunamadı!")
