@@ -47,6 +47,14 @@ def index():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
+@app.route('/register')
+def register_page():
+    return send_from_directory(app.static_folder, 'register.html')
+
+@app.route('/login')
+def login_page():
+    return send_from_directory(app.static_folder, 'login.html')
+
 # İletişim formu için API endpoint'i
 @app.route('/api/contact', methods=['POST'])
 def contact():
