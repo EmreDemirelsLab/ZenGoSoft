@@ -1,160 +1,178 @@
-// main.js - ZenGoSoft JavaScript File
+// main.js - ZenGoSoft JavaScript Dosyası
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbarMenu = document.getElementById('main-menu');
+    // Header Scroll Efekti
+    const header = document.getElementById('header');
+    const scrollTop = document.getElementById('scrollTop');
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            navbarMenu.classList.toggle('active');
-            
-            // Animate menu bars
-            const bars = menuToggle.querySelectorAll('.bar');
-            bars.forEach(bar => bar.classList.toggle('open'));
-        });
-    }
-    
-    // Tab Functionality for Tech Section
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons and panes
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabPanes.forEach(pane => pane.classList.remove('active'));
-            
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            // Show corresponding tab pane
-            const tabId = button.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-    
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            // Toggle current item
-            item.classList.toggle('active');
-            
-            // Update icon
-            const icon = item.querySelector('.faq-toggle i');
-            icon.classList.toggle('fa-plus');
-            icon.classList.toggle('fa-minus');
-        });
-    });
-    
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            if (this.getAttribute('href') !== '#') {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // Close mobile menu if open
-                    if (navbarMenu.classList.contains('active')) {
-                        navbarMenu.classList.remove('active');
-                    }
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-    
-    // Sticky Header Effect
-    const navbar = document.querySelector('.navbar');
-    let scrolled = false;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50 && !scrolled) {
-            navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            navbar.style.padding = '10px 0';
-            scrolled = true;
-        } else if (window.scrollY <= 50 && scrolled) {
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-            navbar.style.padding = '15px 0';
-            scrolled = false;
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+            scrollTop.classList.add('active');
+        } else {
+            header.classList.remove('scrolled');
+            scrollTop.classList.remove('active');
         }
     });
     
-    // Contact Form Validation
-    const contactForm = document.querySelector('.contact-form-fields');
+    // Mobil Menü
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Basic validation
-            let isValid = true;
-            const requiredFields = contactForm.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = 'var(--danger-color)';
-                } else {
-                    field.style.borderColor = 'var(--light-gray)';
-                }
-            });
-            
-            if (isValid) {
-                // Show success message (in real implementation, you would send data to server)
-                alert('Form submitted successfully! We will contact you soon.');
-                contactForm.reset();
-            } else {
-                alert('Please fill out all required fields.');
-            }
-        });
-    }
-    
-    // Animations on Scroll
-    const animateElements = document.querySelectorAll('.solution-card, .case-study-card, .team-member, .blog-card');
-    
-    function checkIfInView() {
-        animateElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-            
-            if (rect.top <= windowHeight * 0.8) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-    
-    // Set initial state for animations
-    animateElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
     
-    // Check elements on load and scroll
-    window.addEventListener('load', checkIfInView);
-    window.addEventListener('scroll', checkIfInView);
+    // Sayfa İçi Bağlantılar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') return;
+            
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Mobil menüyü kapat
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            }
+        });
+    });
+    
+    // Testimonial Slider
+    const testimonialSlider = document.getElementById('testimonials-slider');
+    const testimonialCards = testimonialSlider.querySelectorAll('.testimonial-card');
+    let currentIndex = 0;
+    
+    function showTestimonial(index) {
+       const cardWidth = testimonialCards[0].offsetWidth + 30; // +30 for margins
+       testimonialSlider.scrollTo({
+           left: index * cardWidth,
+           behavior: 'smooth'
+       });
+   }
+   
+   function nextTestimonial() {
+       currentIndex = (currentIndex + 1) % testimonialCards.length;
+       showTestimonial(currentIndex);
+   }
+   
+   // Otomatik slider başlat
+   let testimonialInterval = setInterval(nextTestimonial, 5000);
+   
+   // Kullanıcı etkileşiminde interval'i sıfırla
+   testimonialSlider.addEventListener('mouseenter', () => {
+       clearInterval(testimonialInterval);
+   });
+   
+   testimonialSlider.addEventListener('mouseleave', () => {
+       testimonialInterval = setInterval(nextTestimonial, 5000);
+   });
+   
+   // Touch slide için
+   let touchStartX = 0;
+   let touchEndX = 0;
+   
+   testimonialSlider.addEventListener('touchstart', (e) => {
+       touchStartX = e.changedTouches[0].screenX;
+       clearInterval(testimonialInterval);
+   });
+   
+   testimonialSlider.addEventListener('touchend', (e) => {
+       touchEndX = e.changedTouches[0].screenX;
+       handleSwipe();
+       testimonialInterval = setInterval(nextTestimonial, 5000);
+   });
+   
+   function handleSwipe() {
+       if (touchEndX < touchStartX) {
+           // Sola kaydırma
+           currentIndex = (currentIndex + 1) % testimonialCards.length;
+       } else if (touchEndX > touchStartX) {
+           // Sağa kaydırma
+           currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+       }
+       showTestimonial(currentIndex);
+   }
+   
+   // Scroll to Top
+   document.getElementById('scrollTop').addEventListener('click', () => {
+       window.scrollTo({
+           top: 0,
+           behavior: 'smooth'
+       });
+   });
+   
+   // Form Gönderimi
+   const contactForm = document.getElementById('contact-form');
+   
+   contactForm.addEventListener('submit', function(e) {
+       e.preventDefault();
+       
+       // Form verilerini al
+       const name = document.getElementById('name').value;
+       const email = document.getElementById('email').value;
+       const subject = document.getElementById('subject').value;
+       const message = document.getElementById('message').value;
+       
+       // API'ye gönder (MongoDB'ye kaydetmek için)
+       fetch('/api/contact', {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({ name, email, subject, message })
+       })
+       .then(response => {
+           if (!response.ok) {
+               throw new Error('Sunucu hatası');
+           }
+           return response.json();
+       })
+       .then(data => {
+           if (data.success) {
+               alert('Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.');
+               // Formu sıfırla
+               this.reset();
+           } else {
+               alert('Mesaj gönderilirken bir hata oluştu: ' + data.message);
+           }
+       })
+       .catch(error => {
+           console.error('Hata:', error);
+           alert('Bir hata oluştu, lütfen daha sonra tekrar deneyin.');
+       });
+   });
+
+   // MongoDB bağlantısını test et
+   checkApiStatus();
 });
 
 // API durumunu kontrol eden fonksiyon
 async function checkApiStatus() {
-    try {
-        const response = await fetch('/api/status');
-        const data = await response.json();
-        console.log('API Durumu:', data);
-    } catch (error) {
-        console.error('API bağlantı hatası:', error);
-    }
+   try {
+       const response = await fetch('/api/status');
+       if (!response.ok) {
+           throw new Error('API yanıt vermiyor');
+       }
+       const data = await response.json();
+       console.log('API Durumu:', data);
+       
+       // Veritabanı bağlantısı başarısızsa, kullanıcıya bildir
+       if (data.database && data.database !== "Veritabanı bağlantısı başarılı!") {
+           console.error('Veritabanı bağlantı hatası:', data.database);
+       }
+   } catch (error) {
+       console.error('API bağlantı hatası:', error);
+   }
 }
